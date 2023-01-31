@@ -9,6 +9,7 @@ psycopg2 = "*"
 django-environ = "*"
 black = "*"
 django-rest-framework = "*"
+redis = "*"
 
 [dev-packages]
 
