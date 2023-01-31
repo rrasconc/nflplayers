@@ -8,6 +8,7 @@ router.register(r"positions", views.PositionViewSet)
 router.register(r"teams", views.TeamViewSet)
 
 urlpatterns = [
-    path("players/create_random/", views.RetreiveRandomPlayerView.as_view()),
+    path("players/create_random/", views.StoreRandomPlayerView.as_view()),
+    path("players/random/", views.RetreiveRandomPlayerView.as_view()),
     path("", include(router.urls)),
 ]
