@@ -10,6 +10,7 @@ django-environ = "*"
 black = "*"
 django-rest-framework = "*"
 redis = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
