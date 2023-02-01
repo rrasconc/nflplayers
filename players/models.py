@@ -1,4 +1,5 @@
 from django.db import models
+from players.validators import validate_draft_year
 
 
 class Position(models.Model):
@@ -41,6 +42,7 @@ class Player(models.Model):
     number = models.IntegerField()
     position = models.ForeignKey(Position, on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    drafted = models.PositiveIntegerField(default=2022, validators=[validate_draft_year])
 
     def __str__(self):
         return f"({self.pk}) {self.first_name} {self.last_name}"
