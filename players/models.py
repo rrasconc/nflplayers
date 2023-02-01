@@ -28,6 +28,7 @@ class Team(models.Model):
     name = models.CharField(max_length=30)
     conference = models.CharField(max_length=3, choices=CONFERENCES)
     division = models.CharField(max_length=5, choices=DIVISIONS)
+    abbreviation = models.CharField(max_length=3, default="NA")
 
     def __str__(self):
         return f"({self.pk}) {self.name}"
