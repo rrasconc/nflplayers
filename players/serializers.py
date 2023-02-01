@@ -22,4 +22,4 @@ class PlayerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Player
-        fields = ("id", "first_name", "last_name", "number", "position", "team", "conference", "division")
+        fields = "__all__"
