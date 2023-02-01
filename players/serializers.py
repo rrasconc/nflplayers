@@ -16,6 +16,7 @@ class TeamSerializer(serializers.ModelSerializer):
 
 class PlayerSerializer(serializers.ModelSerializer):
     position = serializers.CharField(source="position.name")
+    position_type = serializers.CharField(source="position.type")
     team = serializers.CharField(source="team.abbreviation")
     conference = serializers.CharField(source="team.conference")
     division = serializers.CharField(source="team.division")
