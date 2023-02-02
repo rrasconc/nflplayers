@@ -25,7 +25,18 @@ class PlayerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Player
-        fields = ("id", "position", "position_type", "team", "conference", "division")
+        fields = (
+            "id",
+            "first_name",
+            "last_name",
+            "number",
+            "drafted",
+            "position",
+            "position_type",
+            "team",
+            "conference",
+            "division",
+        )
 
 
 class RandomPlayerSerializer(PlayerSerializer):
