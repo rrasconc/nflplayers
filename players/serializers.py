@@ -1,5 +1,7 @@
+import json
 from rest_framework import serializers
 from players.models import Player, Position, Team
+from api.redis import redis_get, random_player_key
 
 
 class PositionSerializer(serializers.ModelSerializer):
@@ -23,4 +25,16 @@ class PlayerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Player
-        fields = "__all__"
+        fields = ("id", "position", "position_type", "team", "conference", "division")
+
+
+class RandomPlayerSerializer(PlayerSerializer):
+    daily_date = serializers.SerializerMethodField()
+
+    def get_daily_date(self, obj):
+        str_data = redis_get(key=random_player_key)
+        data = json.loads(str_data)
+        return data["date"]
+
+    class Meta(PlayerSerializer.Meta):
+        fields = PlayerSerializer.Meta.fields + ("daily_date",)
