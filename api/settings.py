@@ -31,7 +31,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("IS_DEBUG")
 
 ALLOWED_HOSTS = [
-    str(env("ALLOWED_HOST")),
+    env("ALLOWED_HOST"),
 ]
 
 
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ALLOWED_ORIGINS = [env("ALLOWED_ORIGIN")]
+CORS_ALLOWED_ORIGINS = [str(env("ALLOWED_ORIGIN"))]
 
 ROOT_URLCONF = "api.urls"
 
