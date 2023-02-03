@@ -11,6 +11,8 @@ black = "*"
 django-rest-framework = "*"
 redis = "*"
 django-cors-headers = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
