@@ -31,7 +31,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("IS_DEBUG")
 
 ALLOWED_HOSTS = [
-    env("ALLOWED_HOST"),
+    str(env("ALLOWED_HOST")),
 ]
 
 
