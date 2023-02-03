@@ -14,7 +14,7 @@ from pathlib import Path
 import environ
 import os
 
-env = environ.Env()
+env = environ.Env(IS_DEBUG=(bool, False))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,9 +28,11 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("IS_DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    env("ALLOWED_HOST"),
+]
 
 
 # Application definition
@@ -142,4 +144,4 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
