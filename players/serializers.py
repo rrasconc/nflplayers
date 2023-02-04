@@ -52,7 +52,7 @@ class RandomPlayerSerializer(PlayerSerializer):
     def get_daily_number(self, obj):
         start_date = date(2023, 2, 3)
         today = date.today()
-        daily_number = start_date - today
+        daily_number = today - start_date
         return daily_number.days
 
     class Meta(PlayerSerializer.Meta):
