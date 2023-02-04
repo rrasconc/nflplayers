@@ -34,8 +34,6 @@ ALLOWED_HOSTS = [
     env("ALLOWED_HOSTS"),
 ]
 
-SECURE_CROSS_ORIGIN_OPENER_POLICY = None
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -61,7 +59,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ALLOWED_ORIGINS = [env("ALLOWED_ORIGINS")]
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = "api.urls"
 
